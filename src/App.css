@@ -1,218 +1,225 @@
-/* Importar fuente de Google */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-/* Diseño y medidas de la pagina web. */
-:root {
-  --font: 'Montserrat', sans-serif;
-  --white: #FFFFFF;
-  --black: #000000;
-  --primary-purple: #9400D3; 
-}
-
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Aseguramos que nada sobresalga a los costados */
-html, body, #root {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal accidental */
-}
 body {
-  font-family: var(--font);
-  background: var(--white);
-  color: var(--primary-purple);
-  line-height: 1.5;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Contenedor principal de React para que el footer quede abajo */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Garantiza que ocupe el 100% del alto de la pantalla */
-  width: 100%;
+/* Contenedor principal */
+.contenedor {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
-/* Modificamos el contenedor para que use el 100% del ancho */
-.container {
-  width: 100%;
-  max-width: none; /* Quitamos el límite de 1200px */
-  padding: 0 2rem; /* Agregamos un poco de espacio interno para que el texto no toque literalmente el borde de la pantalla */
-  margin: 0;
-  text-align: left;
+/* --- HEADER --- */
+header {
+    background-color: #9b2add;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
 }
 
-.container h3 {
-  margin: 15px;
-  text-align: center;
-  color: var(--white);
+.header-izq, .header-der {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
-.container p {
-  margin: 10px;
-  text-align: center;
-  color: var(--white);
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    width: 70px;
+    height: 70px;
 }
 
-/* Diseño del Topbar de la pagina. */
-.site-header {
-  background: var(--primary-purple);
-  padding: 0.5rem 0;
+.header-der a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-/* Diseño de los textos.*/
-.hero {
-  flex: 1; /* Esto hace que el main ocupe todo el espacio disponible entre el header y el footer */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centra el contenido verticalmente */
-  align-items: center; /* Centra el contenido horizontalmente */
-  padding: 2rem 1rem; 
-  text-align: center;
+.header-der a:hover {
+    text-decoration: underline;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--primary-purple);
+/* --- ESTRUCTURA DE SECCIONES --- */
+section {
+    margin-bottom: 80px;
 }
 
-.hero p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  color: #333;
+/* Secciones divididas en 2 columnas (Imagen / Texto) */
+.seccion-dividida {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
 }
 
-/* Diseño del footer/pie de pagina. */
-.site-footer {
-  background: var(--black);
-  color: var(--white);
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 0.9rem;
-  margin-top: auto; /* Empuja el footer hacia abajo */
+/* Contenedor de texto flexible */
+.contenido-texto {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
 }
 
-/*------------- FORMULARIO ------------- */
-
-.form-section {
-  width: 100%;
-  margin: 0; /* Quitamos los márgenes porque Flexbox en el .hero ya se encarga de centrarlo */
-  text-align: center;
+.contenido-texto h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #111;
 }
 
-.form-section h2 {
-  font-size: 1.5rem;
-  color: var(--primary-purple);
-  margin-bottom: 0.5rem;
+.contenido-texto p {
+    font-size: 18px;
+    color: #555;
 }
 
-.form-section p {
-  margin-bottom: 1rem;
-  color: #333;
+.imagen-adicional {
+    height: 350px;
+    object-fit: cover;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+/* --- IMÁGENES (600x600 estricto) --- */
+.imagen-fija {
+    height: 350px;
+    object-fit: cover;
+    background-color: #f0f0f0;
+    border-radius: 8px;
 }
 
-/* Card / fieldset */
-.form-card {
-  border: 1px solid #eee;
-  padding: 1.2rem;
-  border-radius: 8px;
-  max-width: 420px;
-  margin: 0 auto;
-  background: #fff;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.253);
-  text-align: left;
+/* --- GALERÍA (Fila de 3 imágenes) --- */
+.seccion-galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 }
 
-.form-card legend {
-  font-weight: 700;
-  color: var(--primary-purple);
-  padding: 0 0.4rem;
+.tarjeta-galeria {
+    position: relative;
+    width: 325px;
+    height: 325px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-/* Inputs */
-.form-input {
-  display: block;
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  margin: 0.6rem 0 0.8rem 0;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-family: var(--font);
-  font-size: 1rem;
-  background-color: #FFFFFF;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.192);
-  color: #000000;
+.imagen-galeria {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #f0f0f0;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
-/* Acciones (botones) */
-.form-actions {
-  display: flex;
-  text-align: center;
-  gap: 0.6rem;
-  justify-content: center;
-  margin-top: 0.6rem;
-  flex-wrap: wrap;
+/* La capa que oscurece y contiene el texto */
+.capa-oscura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
 }
 
-.btn-form {
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  font-family: var(--font);
-  transition: all 0.3s ease;
+/* Tipografía */
+.capa-oscura h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
 }
 
-.btn-form.btn-add {
-  background: var(--primary-purple);
-  color: var(--white);
+.capa-oscura p {
+    font-size: 16px;
 }
 
-.btn-form.btn-calc {
-  background: #f2f2f2;
-  color: var(--black);
-  border: 1px solid #ddd;
+/* --- EFECTOS HOVER --- */
+
+.tarjeta-galeria:hover .capa-oscura {
+    opacity: 1;
 }
 
-.btn-form.btn-add:hover {
-  background: #e9e9e9;
-  color: var(--primary-purple);
+.tarjeta-galeria:hover .imagen-galeria {
+    transform: scale(1.05);
 }
 
-.btn-form.btn-calc:hover {
-  background: var(--black);
-  color: var(--white);
+/* --- FORMULARIO --- */
+.seccion-formulario {
+    display: flex;
+    justify-content: center;
 }
 
-/* Nota de registro */
-.register-note {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  color: #555;
-  text-align: center;
+.formulario-contacto {
+    width: 100%;
+    max-width: 600px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-.link-inline {
-  color: var(--primary-purple);
-  text-decoration: none;
-  font-weight: 700;
+.formulario-contacto h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color:#000000
 }
 
-.link-inline:hover {
-  opacity: 0.85;
+.grupo-input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Accesibilidad: ocultar label visualmente pero mantener para lectores de pantalla */
-.sr-only {
-  position: absolute;
-  left: -10000px;
-  top: auto;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
+.grupo-input input, .grupo-input textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.grupo-input textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #9b2add;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #7a1ebd;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #111111;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 16px;
 }

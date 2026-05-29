@@ -1,77 +1,106 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 
 function App() {
-  // Estado para guardar el valor del input
-  const [evento, setEvento] = useState('');
-
-  // Función para manejar el envío del formulario
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (evento.trim() === '') {
-      alert('Por favor, ingresa un tipo de evento (ej. Mis 15, Boda).');
-      return;
-    }
-    console.log("Avanzando al siguiente módulo con el evento:", evento);
-    // Aquí irá la lógica para avanzar al siguiente módulo
-  };
-
-  // Función para limpiar el input
-  const handleReset = () => {
-    setEvento('');
-  };
-
   return (
-    <div className="app-container">
-      {/* Topbar */}
-      <header className="site-header">
-        <div className="container">
-          <h3>Organizador de Eventos</h3>
+    <>
+      <header>
+        <div className="header-izq">
+          <span className="logo">
+            <img className="logo" src="../public/c_1_-removebg-preview.png" alt="Logo Kittac" />
+          </span>
+          <span><h3>Kittac - Organizadora de eventos</h3></span>
         </div>
+        <nav className="header-der">
+          <a href="#">Nosotros</a>
+          <a href="#">Eventos</a>
+          <a href="#">Contactanos</a>
+        </nav>
       </header>
 
-      {/* Contenido principal */}
-      <main className="hero">
-        <section className="container form-section">
-          <h2>Bienvenido a Kittac</h2>
-          <p>Su evento a solo unos clics</p>
+      <main className="contenedor">
+        <section className="seccion-dividida">
+          <img className="imagen-fija" src="../public/home-carrousel1.webp" alt="Imagen de cabecera" />
+          
+          <div className="contenido-texto">
+            <h1>KITTAC EVENTOS</h1>
+            <h3>Hacemos que tu evento sea inolvidable</h3>
+            <br />
+            <p>En Kittac no organizamos eventos. Creamos momentos que se recuerdan toda la vida. Desde la primera idea hasta el último brindis, nos encargamos de cada detalle para que vos solo te ocupes de disfrutar. Bodas, 15 años, cumpleaños, egresados o cualquier celebración que tengas en mente: la hacemos realidad, a tu estilo y sin estrés.</p>
+            <br />
+            <p>Tu historia merece una celebración a la altura.</p>
+          </div>
+        </section>
 
-          <form className="login-form" onSubmit={handleSubmit}>
-            <fieldset className="form-card">
-              <legend>Tipo de evento</legend>
+        <section className="seccion-galeria">
+          <div className="tarjeta-galeria">
+            <img className="imagen-galeria" src="../public/photo-1606800052052-a08af7148866.avif" alt="Imagen de galería 1" />
+            <div className="capa-oscura">
+              <h2>Bodas</h2>
+              <p>Civiles, religiosas o al aire libre. Te armamos todo el esquema para que solo disfrutes</p>
+            </div>
+          </div>
 
-              <label htmlFor="eventoInput" className="sr-only">Tipo de evento</label>
-              <input 
-                id="eventoInput" 
-                name="eventoInput" 
-                type="text" 
-                maxLength="20" 
-                placeholder="Ej: Boda" 
-                className="form-input" 
-                value={evento}
-                onChange={(e) => setEvento(e.target.value)}
-              />
+          <div className="tarjeta-galeria">
+            <img className="imagen-galeria" src="../public/71Qk6Mh+c9L._AC_UF894,1000_QL80_.jpg" alt="Imagen de galería 2" />
+            <div className="capa-oscura">
+              <h2>15 años</h2>
+              <p>Entrada soñada, pista de baile, shows y una noche única.</p>
+            </div>
+          </div>
 
-              <div className="form-actions">
-                <button type="submit" className="btn-form btn-add">Siguiente</button>
-                <button type="button" onClick={handleReset} className="btn-form btn-calc">Borrar</button>
-              </div>
+          <div className="tarjeta-galeria">
+            <img className="imagen-galeria" src="../public/organizar-eventos.webp" alt="Imagen de galería 3" />
+            <div className="capa-oscura">
+              <h2>Cumpleaños</h2>
+              <p>Infantiles con animación y juegos, de adultos con barra y DJ.</p>
+            </div>
+          </div>
+        </section>
 
-              <p className="register-note">
-                Más información <a href="#registro" className="link-inline">aquí</a>
-              </p>
-            </fieldset>
+        <section className="seccion-dividida">
+          <div className="contenido-texto">
+            <h1>Nuestros Servicios</h1>
+            <p>Para que no tengas que coordinar con 10 proveedores distintos, en Kittac te lo ofrecemos. Contamos con catering que ofrece menús personalizados, equipo de DJ y animador, iluminación LED, cobertura fotográfica y audiovisual profesional, transporte para los novios, souvenirs personalizados, y mucho más.</p>
+          </div>
+          
+          <img className="imagen-adicional" src="../public/1.jpg" alt="Imagen secundaria" />
+        </section>
+
+        <section className="seccion-formulario">
+          <form className="formulario-contacto" action="#" method="POST">
+            <h2>Formulario de Contacto</h2>
+            
+            <div className="grupo-input">
+              <label htmlFor="nombre">Nombre y apellido</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Su nombre y apellido" required />
+            </div>
+            
+            <div className="grupo-input">
+              <label htmlFor="email">Correo Electrónico</label>
+              <input type="email" id="email" name="email" placeholder="Su correo" required />
+            </div>
+
+            <div className="grupo-input">
+              <label htmlFor="tipoEvento">Tipo de evento</label>
+              <input type="text" id="tipoEvento" name="tipoEvento" placeholder="El evento" required />
+            </div>
+            
+            <div className="grupo-input">
+              <label htmlFor="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            </div>
+            
+            <button type="submit">Enviar</button>
           </form>
         </section>
       </main>
 
-      {/* Footer */}
-      <footer className="site-footer">
-        <div className="container">
-          <p>Facundo Flores y Lara Caron. ©Kittac todos sus derechos reservados.</p>
-        </div>
+      <footer>
+        <p>Tu momento debe celebrarse, y tu celebración, es nuestra pasión.</p><br />
+        <p>© 2026 Kittac. Todos los derechos reservados.</p>
       </footer>
-    </div>
+    </>
   );
 }
 
